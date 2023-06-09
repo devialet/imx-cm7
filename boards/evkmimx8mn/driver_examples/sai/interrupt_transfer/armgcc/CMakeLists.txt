@@ -66,41 +66,41 @@ set(CMAKE_MODULE_PATH
 )
 
 # include modules
-include(driver_wm8524_MIMX8MN6)
+include(driver_wm8524)
 
-include(driver_igpio_MIMX8MN6)
+include(driver_igpio)
 
-include(driver_codec_MIMX8MN6)
+include(driver_codec)
 
-include(driver_common_MIMX8MN6)
+include(driver_common)
 
-include(component_wm8524_adapter_MIMX8MN6)
+include(component_wm8524_adapter)
 
-include(utility_debug_console_lite_MIMX8MN6)
+include(utility_debug_console_lite)
 
-include(utility_assert_lite_MIMX8MN6)
+include(utility_assert_lite)
 
-include(driver_clock_MIMX8MN6)
+include(driver_clock)
 
-include(driver_sai_MIMX8MN6)
+include(driver_sai)
 
-include(driver_rdc_MIMX8MN6)
+include(driver_rdc)
 
-include(device_MIMX8MN6_CMSIS_MIMX8MN6)
+include(device_CMSIS)
 
-include(component_iuart_adapter_MIMX8MN6)
+include(component_iuart_adapter)
 
-include(component_lists_MIMX8MN6)
+include(component_lists)
 
-include(driver_iuart_MIMX8MN6)
+include(driver_iuart)
 
-include(device_MIMX8MN6_startup_MIMX8MN6)
+include(device_startup)
 
-include(CMSIS_Include_core_cm_MIMX8MN6)
+include(CMSIS_Include_core_cm)
 
-include(utilities_misc_utilities_MIMX8MN6)
+include(utilities_misc_utilities)
 
-include(device_MIMX8MN6_system_MIMX8MN6)
+include(device_system)
 
 
 IF(NOT DEFINED TARGET_LINK_SYSTEM_LIBRARIES)  

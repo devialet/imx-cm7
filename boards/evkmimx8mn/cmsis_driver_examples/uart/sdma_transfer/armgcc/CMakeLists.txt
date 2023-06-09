@@ -66,43 +66,43 @@ set(CMAKE_MODULE_PATH
 )
 
 # include modules
-include(driver_iuart_sdma_MIMX8MN6)
+include(driver_iuart_sdma)
 
-include(utility_debug_console_lite_MIMX8MN6)
+include(utility_debug_console_lite)
 
-include(utility_assert_lite_MIMX8MN6)
+include(utility_assert_lite)
 
-include(driver_clock_MIMX8MN6)
+include(driver_clock)
 
-include(driver_cmsis_iuart_MIMX8MN6)
+include(driver_cmsis_iuart)
 
-include(driver_common_MIMX8MN6)
+include(driver_common)
 
-include(driver_rdc_MIMX8MN6)
+include(driver_rdc)
 
-include(device_MIMX8MN6_CMSIS_MIMX8MN6)
+include(device_CMSIS)
 
-include(component_iuart_adapter_MIMX8MN6)
+include(component_iuart_adapter)
 
-include(component_lists_MIMX8MN6)
+include(component_lists)
 
-include(driver_iuart_MIMX8MN6)
+include(driver_iuart)
 
-include(device_MIMX8MN6_startup_MIMX8MN6)
+include(device_startup)
 
-include(driver_sdma_MIMX8MN6)
+include(driver_sdma)
 
-include(driver_memory_MIMX8MN6)
+include(driver_memory)
 
-include(CMSIS_Include_core_cm_MIMX8MN6)
+include(CMSIS_Include_core_cm)
 
-include(CMSIS_Driver_Include_USART_MIMX8MN6)
+include(CMSIS_Driver_Include_USART)
 
-include(CMSIS_Driver_Include_Common_MIMX8MN6)
+include(CMSIS_Driver_Include_Common)
 
-include(utilities_misc_utilities_MIMX8MN6)
+include(utilities_misc_utilities)
 
-include(device_MIMX8MN6_system_MIMX8MN6)
+include(device_system)
 
 
 IF(NOT DEFINED TARGET_LINK_SYSTEM_LIBRARIES)  

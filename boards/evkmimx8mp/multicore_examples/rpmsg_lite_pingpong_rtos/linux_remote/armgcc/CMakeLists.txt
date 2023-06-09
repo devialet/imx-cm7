@@ -69,51 +69,51 @@ set(CMAKE_MODULE_PATH
 )
 
 # include modules
-include(middleware_multicore_rpmsg_lite_imx8mp_m7_freertos_MIMX8ML8)
+include(middleware_multicore_rpmsg_lite_imx8mp_m7_freertos)
 
-include(middleware_multicore_rpmsg_lite_MIMX8ML8)
+include(middleware_multicore_rpmsg_lite)
 
-include(middleware_multicore_rpmsg_lite_freertos_MIMX8ML8)
+include(middleware_multicore_rpmsg_lite_freertos)
 
-include(middleware_freertos-kernel_heap_4_MIMX8ML8)
+include(middleware_freertos-kernel_heap_4)
 
-include(driver_clock_MIMX8ML8)
+include(driver_clock)
 
-include(driver_mu_MIMX8ML8)
+include(driver_mu)
 
-include(middleware_freertos-kernel_MIMX8ML8)
+include(middleware_freertos-kernel)
 
-include(driver_common_MIMX8ML8)
+include(driver_common)
 
-include(driver_rdc_MIMX8ML8)
+include(driver_rdc)
 
-include(driver_audiomix_MIMX8ML8)
+include(driver_audiomix)
 
-include(device_MIMX8ML8_CMSIS_MIMX8ML8)
+include(device_CMSIS)
 
-include(utility_debug_console_MIMX8ML8)
+include(utility_debug_console)
 
-include(component_iuart_adapter_MIMX8ML8)
+include(component_iuart_adapter)
 
-include(component_serial_manager_MIMX8ML8)
+include(component_serial_manager)
 
-include(component_lists_MIMX8ML8)
+include(component_lists)
 
-include(component_serial_manager_uart_MIMX8ML8)
+include(component_serial_manager_uart)
 
-include(driver_iuart_MIMX8ML8)
+include(driver_iuart)
 
-include(device_MIMX8ML8_startup_MIMX8ML8)
+include(device_startup)
 
-include(utility_assert_MIMX8ML8)
+include(utility_assert)
 
-include(middleware_freertos-kernel_extension_MIMX8ML8)
+include(middleware_freertos-kernel_extension)
 
-include(CMSIS_Include_core_cm_MIMX8ML8)
+include(CMSIS_Include_core_cm)
 
-include(utilities_misc_utilities_MIMX8ML8)
+include(utilities_misc_utilities)
 
-include(device_MIMX8ML8_system_MIMX8ML8)
+include(device_system)
 
 
 IF(NOT DEFINED TARGET_LINK_SYSTEM_LIBRARIES)  

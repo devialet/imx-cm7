@@ -90,75 +90,75 @@ set(CMAKE_MODULE_PATH
 )
 
 # include modules
-include(driver_igpio_MIMX8MN6)
+include(driver_igpio)
 
-include(driver_iuart_MIMX8MN6)
+include(driver_iuart)
 
-include(driver_gpc_2_MIMX8MN6)
+include(driver_gpc_2)
 
-include(driver_gpt_MIMX8MN6)
+include(driver_gpt)
 
-include(driver_codec_MIMX8MN6)
+include(driver_codec)
 
-include(driver_common_MIMX8MN6)
+include(driver_common)
 
-include(component_codec_adapters_MIMX8MN6)
+include(component_codec_adapters)
 
-include(component_wm8524_adapter_MIMX8MN6)
+include(component_wm8524_adapter)
 
-include(middleware_multicore_rpmsg_lite_MIMX8MN6)
+include(middleware_multicore_rpmsg_lite)
 
-include(middleware_multicore_rpmsg_lite_freertos_MIMX8MN6)
+include(middleware_multicore_rpmsg_lite_freertos)
 
-include(driver_clock_MIMX8MN6)
+include(driver_clock)
 
-include(driver_sai_MIMX8MN6)
+include(driver_sai)
 
-include(driver_sai_sdma_MIMX8MN6)
+include(driver_sai_sdma)
 
-include(driver_rdc_MIMX8MN6)
+include(driver_rdc)
 
-include(device_MIMX8MN6_CMSIS_MIMX8MN6)
+include(device_CMSIS)
 
-include(utility_debug_console_MIMX8MN6)
+include(utility_debug_console)
 
-include(component_iuart_adapter_MIMX8MN6)
+include(component_iuart_adapter)
 
-include(component_serial_manager_MIMX8MN6)
+include(component_serial_manager)
 
-include(component_lists_MIMX8MN6)
+include(component_lists)
 
-include(component_serial_manager_uart_MIMX8MN6)
+include(component_serial_manager_uart)
 
-include(device_MIMX8MN6_startup_MIMX8MN6)
+include(device_startup)
 
-include(utility_assert_MIMX8MN6)
+include(utility_assert)
 
-include(CMSIS_Include_core_cm_MIMX8MN6)
+include(CMSIS_Include_core_cm)
 
-include(driver_sdma_MIMX8MN6)
+include(driver_sdma)
 
-include(driver_memory_MIMX8MN6)
+include(driver_memory)
 
-include(driver_mu_MIMX8MN6)
+include(driver_mu)
 
-include(driver_wm8524_MIMX8MN6)
+include(driver_wm8524)
 
-include(driver_srtm_freertos_MIMX8MN6)
+include(driver_srtm_freertos)
 
-include(driver_srtm_MIMX8MN6)
+include(driver_srtm)
 
-include(middleware_multicore_rpmsg_lite_imx8mn_m7_freertos_MIMX8MN6)
+include(middleware_multicore_rpmsg_lite_imx8mn_m7_freertos)
 
-include(middleware_freertos-kernel_MIMX8MN6)
+include(middleware_freertos-kernel)
 
-include(middleware_freertos-kernel_extension_MIMX8MN6)
+include(middleware_freertos-kernel_extension)
 
-include(middleware_freertos-kernel_heap_4_MIMX8MN6)
+include(middleware_freertos-kernel_heap_4)
 
-include(utilities_misc_utilities_MIMX8MN6)
+include(utilities_misc_utilities)
 
-include(device_MIMX8MN6_system_MIMX8MN6)
+include(device_system)
 
 
 IF(NOT DEFINED TARGET_LINK_SYSTEM_LIBRARIES)  

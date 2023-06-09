@@ -71,59 +71,59 @@ set(CMAKE_MODULE_PATH
 )
 
 # include modules
-include(driver_phy-device-rtl8211f_MIMX8ML8)
+include(driver_phy-device-rtl8211f)
 
-include(driver_cache_armv7_m7_MIMX8ML8)
+include(driver_cache_armv7_m7)
 
-include(driver_igpio_MIMX8ML8)
+include(driver_igpio)
 
-include(utility_debug_console_lite_MIMX8ML8)
+include(utility_debug_console_lite)
 
-include(utility_assert_lite_MIMX8ML8)
+include(utility_assert_lite)
 
-include(component_silicon_id_MIMX8ML8)
+include(component_silicon_id)
 
-include(driver_common_MIMX8ML8)
+include(driver_common)
 
-include(component_silicon_id_imx8_MIMX8ML8)
+include(component_silicon_id_imx8)
 
-include(driver_clock_MIMX8ML8)
+include(driver_clock)
 
-include(driver_enet_MIMX8ML8)
+include(driver_enet)
 
-include(driver_cmsis_enet_MIMX8ML8)
+include(driver_cmsis_enet)
 
-include(driver_rdc_MIMX8ML8)
+include(driver_rdc)
 
-include(driver_audiomix_MIMX8ML8)
+include(driver_audiomix)
 
-include(device_MIMX8ML8_CMSIS_MIMX8ML8)
+include(device_CMSIS)
 
-include(component_iuart_adapter_MIMX8ML8)
+include(component_iuart_adapter)
 
-include(component_lists_MIMX8ML8)
+include(component_lists)
 
-include(driver_iuart_MIMX8ML8)
+include(driver_iuart)
 
-include(device_MIMX8ML8_startup_MIMX8ML8)
+include(device_startup)
 
-include(driver_phy-common_MIMX8ML8)
+include(driver_phy-common)
 
-include(CMSIS_Include_core_cm_MIMX8ML8)
+include(CMSIS_Include_core_cm)
 
-include(driver_memory_MIMX8ML8)
+include(driver_memory)
 
-include(CMSIS_Driver_Include_Ethernet_MAC_MIMX8ML8)
+include(CMSIS_Driver_Include_Ethernet_MAC)
 
-include(CMSIS_Driver_Include_Ethernet_MIMX8ML8)
+include(CMSIS_Driver_Include_Ethernet)
 
-include(CMSIS_Driver_Include_Common_MIMX8ML8)
+include(CMSIS_Driver_Include_Common)
 
-include(CMSIS_Driver_Include_Ethernet_PHY_MIMX8ML8)
+include(CMSIS_Driver_Include_Ethernet_PHY)
 
-include(utilities_misc_utilities_MIMX8ML8)
+include(utilities_misc_utilities)
 
-include(device_MIMX8ML8_system_MIMX8ML8)
+include(device_system)
 
 
 IF(NOT DEFINED TARGET_LINK_SYSTEM_LIBRARIES)  
