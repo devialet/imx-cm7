@@ -1,0 +1,49 @@
+#!/bin/sh
+
+# This script is for cleaning platform depencies of the specified architecture
+
+##########################################################################################################################################
+##  Tool chain imx8mn sdk 2.13.0
+##########################################################################################################################################
+
+rm COPYING-BSD-3 EVK-MIMX8MN_manifest_v3_10.xml LA_OPT_NXP_Software_License.txt SW-Content-Register.txt
+rm -rf docs
+find ./ ! -path "*boards*" ! -path "*devices*" -type f -name  "*MIMX8MN6*" | xargs rename.ul "_MIMX8MN6" ""
+grep -rl "MIMX8MN6" --exclude-dir="boards" --exclude-dir="devices" --exclude-dir=".git" --exclude="script" | xargs sed -i 's/_MIMX8MN6//g'
+
+
+##########################################################################################################################################
+##  Board evkmimx8mn
+##########################################################################################################################################
+
+grep -rl "MIMX8MN6)" boards/evkmimx8mn/ | xargs sed -i 's/_MIMX8MN6//g'
+find -name "config.cmake" | xargs grep "MIMX8MN6" -rl | xargs sed -i 's/_MIMX8MN6//g'
+
+##########################################################################################################################################
+##  Device MIMX8MN6
+##########################################################################################################################################
+
+find devices/MIMX8MN6/ ! -path "*gcc*"  -type f -name "*MIMX8MN6*" | xargs rename.ul "_MIMX8MN6" ""
+grep  -rl --exclude-dir="gcc" "MIMX8MN6)" devices/MIMX8MN6/ | xargs sed -i 's/_MIMX8MN6//g'
+find devices/MIMX8MN6/   -maxdepth 1 -type f -name "*MIMX8MN6*" | xargs rename.ul "_MIMX8MN6" ""
+grep -rl "system_MIMX8MN6_cm7.h" devices/MIMX8MN6/ | xargs sed -i 's/system_MIMX8MN6_cm7.h/system_cm7.h/g'
+find devices/MIMX8MN6/ -name "*startup*"  | xargs rename.ul "_MIMX8MN6" ""
+
+
+##########################################################################################################################################
+##  Board evkmimx8mp
+##########################################################################################################################################
+
+
+grep -rl "MIMX8ML8)" boards/evkmimx8mp/ | xargs sed -i 's/_MIMX8ML8//g'
+find -name "config.cmake" | xargs grep "MIMX8ML8" -rl | xargs sed -i 's/_MIMX8ML8//g'
+
+##########################################################################################################################################
+##  Device MIMX8ML8
+##########################################################################################################################################
+
+find devices/MIMX8ML8/ ! -path "*gcc*"  -type f -name "*MIMX8ML8*" | xargs rename.ul "_MIMX8ML8" ""
+grep  -rl --exclude-dir="gcc" "MIMX8ML8)" devices/MIMX8ML8/ | xargs sed -i 's/_MIMX8ML8//g'
+find devices/MIMX8ML8/   -maxdepth 1 -type f -name "*MIMX8ML8*" | xargs rename.ul "_MIMX8ML8" ""
+grep -rl "system_MIMX8ML8_cm7.h" devices/MIMX8ML8/ | xargs sed -i 's/system_MIMX8ML8_cm7.h/system_cm7.h/g'
+find devices/MIMX8ML8/ -name "*startup*"  | xargs rename.ul "_MIMX8ML8" ""
