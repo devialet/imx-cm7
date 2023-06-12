@@ -1,0 +1,7 @@
+app/phoenix/armgcc/CMakeCache.txt
+app/phoenix/armgcc/CMakeFiles/*
+app/phoenix/armgcc/Makefile
+app/phoenix/armgcc/build_log.txt
+app/phoenix/armgcc/cmake_install.cmake
+app/phoenix/armgcc/debug/*
+app/phoenix/armgcc/output.map

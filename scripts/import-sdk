@@ -1,0 +1,83 @@
+#!/bin/sh
+
+set -e
+
+# This script is for cleaning platform dependancies of the specified architecture
+if [  "$#" -lt 2  ]; then
+    printf 'usage: %s <imx8mp/imx8mn> <sdk.tar.gz>\n' "${0}"
+    exit 1
+fi
+
+SCRIPT_PATH=$(dirname "$(realpath "${0}")")
+SDK_DIR="${SCRIPT_PATH}/../sdk"
+
+##########################################################################################################################################
+##  Clean Tool chain
+##########################################################################################################################################
+toolchain_init() {
+    if [ -d "${SDK_DIR}" ];then
+        rm -rf "${SDK_DIR}"
+    fi
+
+    mkdir -p "${SDK_DIR}"
+    tar -xzf "${2}" -C "${SDK_DIR}"
+
+    rm -rf "${SDK_DIR}/COPYING-BSD-3" "${SDK_DIR}/EVK-MIMX8MN_manifest_v3_10.xml" "${SDK_DIR}/LA_OPT_NXP_Software_License.txt" "${SDK_DIR}/SW-Content-Register.txt"
+    rm -rf "${SDK_DIR}/docs"
+
+    find "${SDK_DIR}" ! -path "*boards*" ! -path "*devices*"  -type f -name  "*${1}*" -exec rename.ul "_${1}" "" {} \;
+    grep -rl "${1}" --exclude-dir="boards" --exclude-dir="devices"  "${SDK_DIR}"/ | xargs sed -i "s/_${1}//g"
+}
+
+##########################################################################################################################################
+##  Clean Board
+##########################################################################################################################################
+clean_board() {
+    grep -rl "${DEVICES})" "${SDK_DIR}/boards/${BOARD}/" | xargs sed -i "s/_${DEVICES}//g"
+    find "${SDK_DIR}" -name "config.cmake" -exec grep -rql "${DEVICES}" {} \; -exec sed -i "s/_${DEVICES}//g" {} \;
+}
+
+##########################################################################################################################################
+##  Clean Device
+##########################################################################################################################################
+clean_device(){
+    find "${SDK_DIR}/devices/${DEVICES}/" ! -path "*gcc*"  -type f -name "*${DEVICES}*" -exec rename.ul "_${DEVICES}" "" {} \;
+    grep -rl --exclude-dir="gcc" "${DEVICES})" "${SDK_DIR}/devices/${DEVICES}/" | xargs sed -i "s/_${DEVICES}//g"
+    find "${SDK_DIR}/devices/${DEVICES}/"   -maxdepth 1 -type f -name "*${DEVICES}*" -exec rename.ul "_${DEVICES}" "" {} \;
+    grep -rl "system_${DEVICES}_cm7.h" "${SDK_DIR}/devices/${DEVICES}/" | xargs sed -i "s/system_${DEVICES}_cm7.h/system_cm7.h/g"
+    find "${SDK_DIR}/devices/${DEVICES}/" -name "*startup*"  -exec rename.ul "_${DEVICES}" "" {} \;
+}
+
+##########################################################################################################################################
+##  Merge Device
+##########################################################################################################################################
+merge(){
+    if [ -d "${SDK_DIR}/boards/${BOARD}/" ]; then
+        rm -rf "${SDK_DIR}/boards/${BOARD}/"
+        rm -rf "${SDK_DIR}/devices/${DEVICES}/"
+    fi
+    mkdir -p "${SCRIPT_PATH}"/tmp
+    tar -xzf "${1}" -C "${SCRIPT_PATH}"/tmp
+    cp -r "${SCRIPT_PATH}/tmp/boards/${BOARD}/" "${SDK_DIR}/boards"
+    cp -r "${SCRIPT_PATH}/tmp/devices/${DEVICES}/" "${SDK_DIR}/devices"
+    rm -rf "${SCRIPT_PATH}"/tmp
+}
+
+case "${1}" in
+    'imx8mp')
+        DEVICES='MIMX8ML8'
+        BOARD='evkmimx8mp'
+        merge "${2}"
+        ;;
+    'imx8mn')
+        DEVICES='MIMX8MN6'
+        BOARD='evkmimx8mn'
+        toolchain_init "${DEVICES}" "${2}"
+        ;;
+    *)
+        printf 'usage: %s <imx8mp/imx8mn> <sdk.tar.gz>\n' "${0}"
+        ;;
+esac
+
+clean_board
+clean_device
