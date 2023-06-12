@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# This script is for cleaning platform depencies of the specified architecture
+# set -x 
+##########################################################################################################################################
+##  Tool chain imx8mn sdk 2.13.0
+##########################################################################################################################################
+
+script_path=$(dirname $(realpath "$0"))
+if [ -z "$1" ]; then
+    echo "usage: "$0" <sdk.tar.gz>"
+    exit 1
+fi
+
+rm -rf "${script_path}"/../sdk
+mkdir -p "${script_path}"/../sdk
+tar -xzf "$1" -C "${script_path}"/../sdk
+
+rm -rf "${script_path}"/../sdk/COPYING-BSD-3 "${script_path}"/../sdk/EVK-MIMX8MN_manifest_v3_10.xml "${script_path}"/../sdk/LA_OPT_NXP_Software_License.txt "${script_path}"/../sdk/SW-Content-Register.txt
+rm -rf "${script_path}"/../sdk/docs
+
+find  "${script_path}"/../sdk ! -path "*boards*" ! -path "*devices*"  -type f -name  "*MIMX8MN6*" | xargs rename.ul "_MIMX8MN6" ""
+grep -rl "MIMX8MN6" --exclude-dir="boards" --exclude-dir="devices"  "${script_path}"/../sdk/ | xargs sed -i 's/_MIMX8MN6//g'
+
+##########################################################################################################################################
+##  Board evkmimx8mn
+##########################################################################################################################################
+
+grep -rl "MIMX8MN6)" "${script_path}"/../sdk/boards/evkmimx8mn/ | xargs sed -i 's/_MIMX8MN6//g'
+find "${script_path}"/../sdk -name "config.cmake" | xargs grep "MIMX8MN6" -rl  | xargs sed -i 's/_MIMX8MN6//g'
+
+##########################################################################################################################################
+##  Device MIMX8MN6
+##########################################################################################################################################
+
+find "${script_path}"/../sdk/devices/MIMX8MN6/ ! -path "*gcc*"  -type f -name "*MIMX8MN6*" | xargs rename.ul "_MIMX8MN6" ""
+grep  -rl --exclude-dir="gcc" "MIMX8MN6)" "${script_path}"/../sdk/devices/MIMX8MN6/ | xargs sed -i 's/_MIMX8MN6//g'
+find "${script_path}"/../sdk/devices/MIMX8MN6/   -maxdepth 1 -type f -name "*MIMX8MN6*" | xargs rename.ul "_MIMX8MN6" ""
+grep -rl "system_MIMX8MN6_cm7.h" "${script_path}"/../sdk/devices/MIMX8MN6/ | xargs sed -i 's/system_MIMX8MN6_cm7.h/system_cm7.h/g'
+find "${script_path}"/../sdk/devices/MIMX8MN6/ -name "*startup*"  | xargs rename.ul "_MIMX8MN6" ""
